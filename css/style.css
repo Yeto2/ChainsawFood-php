@@ -98,3 +98,12 @@ form {
     width: 100% !important;
     justify-content: flex-end;
 }
+
+/* data container */
+
+.table-con {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
