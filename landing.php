@@ -22,18 +22,9 @@
             Cainsaw Food</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="data.php">
-                <div class="modal-body">
-                        <?php
+            <?php
                             require ('form.php');
-                        ?>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save comand</button>
-                </div>
-            </form>
-
+                            ?>
         </div>
             </div>
     </div>

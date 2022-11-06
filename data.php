@@ -1,5 +1,5 @@
 <?php
-require ('dbcon.php');
+require ('dbCon.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,20 +16,9 @@ require ('dbcon.php');
         <title>Data page</title>
 </head>
 <body>
-<?php
-                        $name   = $_POST['name'];
-                        $phone = $_POST['phone'];
-                        $email  = $_POST['email'];
-                        $comandCode = $_POST['comand'];
-    if ($conn->connect_error) {
-        die('connection faild :' .$conn->connect_error);
-    }else {
-        $sql = "INSERT INTO clients (name, number, email, comand) VALUES ($name,$phone,$email,$comandCode)";
-        mysqli_query($conn , $sql);
-        echo "registration success ... !";
-    }
-
-?>
+    <form class="back" action="landing.php">
+            <button class="btn btn-primary"><--</button>
+</form>
 <div class="container table-con">
 <table class="table table-striped table-hover">
     <tr>
@@ -39,14 +28,24 @@ require ('dbcon.php');
         <th>email</th>
         <th>comand</th>
     </tr>
-    <tr>
-        <td><?php echo "0"; ?></td>
-        <td><?php echo $name; ?></td>
-        <td><?php echo $phone; ?></td>
-        <td><?php echo $email; ?></td>
-        <td><?php echo $comandCode; ?></td>
-        
-    </tr>
+    
+        <?php
+            $sql = "SELECT * FROM client ;";
+            $result = mysqli_query($conn , $sql);
+            $resultCheck = mysqli_num_rows($result);
+            if ($resultCheck > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>". $row['id'] ."</td>";
+                    echo "<td>". $row['name'] ."</td>";
+                    echo "<td>". $row['number'] ."</td>";
+                    echo "<td>". $row['email'] ."</td>";
+                    echo "<td>". $row['comand'] ."</td>";
+                    echo "<tr>";
+                    
+                }
+            }
+        ?>
     
 </table>
 </div>

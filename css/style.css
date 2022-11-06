@@ -107,3 +107,9 @@ form {
     justify-content: center;
     flex-direction: column;
 }
+form.back {
+    width: fit-content;
+    position: relative;
+    top: 35px;
+    left: 30px;
+}
